@@ -1,13 +1,13 @@
 import { delay } from 'redux-saga'
-import { all, takeEvery, put } from 'redux-saga/effects'
+import { all, takeEvery, call, put } from 'redux-saga/effects'
 
 
 function* helloSaga() {
     console.log('Hello Saga!')
 }
 
-function* workIncrementAsync() {
-    yield delay(1000)
+export function* workIncrementAsync() {
+    yield call(delay, 1000)
     yield put({ type: 'INCREMENT' })
 }
 
